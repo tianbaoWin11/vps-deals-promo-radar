@@ -3,6 +3,7 @@
 import html
 import json
 import re
+import shutil
 from datetime import datetime, timezone
 from pathlib import Path
 from string import Template
@@ -90,6 +91,10 @@ def main():
         current.append(offer)
     updated = data.get("generated_at") or datetime.now(timezone.utc).isoformat(timespec="seconds")
     out = ROOT / "site"
+    if out.resolve().parent != ROOT.resolve():
+        raise RuntimeError("site output must remain inside the repository")
+    if out.exists():
+        shutil.rmtree(out)
     out.mkdir(exist_ok=True)
     month = datetime.now(timezone.utc).strftime("%B %Y")
     provider_links = "".join(f'<a class="provider-pill" href="/providers/{esc(p["id"])}/">{esc(p["name"])} <span>↗</span></a>' for p in providers)
@@ -144,9 +149,20 @@ def main():
         body, [itemlist(site["domain"], current)], updated))
 
     paths = ["", "compare/"] + [f"providers/{p['id']}/" for p in providers] + [f"deals/{o['id']}/" for o in current]
-    offer_times = {f"deals/{o['id']}/": o["fetched_at"][:10] for o in current}
+    # lastmod records material offer changes, not each routine check.
+    offer_times = {f"deals/{o['id']}/": o.get("content_updated_at", o["fetched_at"])[:10] for o in current}
+    if current:
+        latest_material = max(o.get("content_updated_at", o["fetched_at"])[:10] for o in current)
+    else:
+        latest_material = updated[:10]
+    for provider in providers:
+        own = [o for o in current if o["provider_id"] == provider["id"]]
+        offer_times[f"providers/{provider['id']}/"] = max(
+            (o.get("content_updated_at", o["fetched_at"])[:10] for o in own), default=latest_material)
+    offer_times[""] = latest_material
+    offer_times["compare/"] = latest_material
     sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-    sitemap += "".join(f'<url><loc>{esc(url_for(site["domain"], path))}</loc><lastmod>{esc(offer_times.get(path, updated[:10]))}</lastmod></url>\n' for path in paths)
+    sitemap += "".join(f'<url><loc>{esc(url_for(site["domain"], path))}</loc><lastmod>{esc(offer_times[path])}</lastmod></url>\n' for path in paths)
     (out / "sitemap.xml").write_text(sitemap + "</urlset>\n", encoding="utf-8")
     (out / "robots.txt").write_text("User-agent: *\nAllow: /\nSitemap: " + url_for(site["domain"], "sitemap.xml") + "\n", encoding="utf-8")
     (out / "style.css").write_text((ROOT / "templates" / "style.css").read_text(encoding="utf-8"), encoding="utf-8")

@@ -89,6 +89,9 @@ def scrape_provider(provider, timestamp):
 def main():
     _, providers = load_config()
     timestamp = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    output = ROOT / "data" / "offers.json"
+    previous = json.loads(output.read_text(encoding="utf-8")) if output.exists() else {"offers": []}
+    previous_by_id = {item["id"]: item for item in previous.get("offers", [])}
     offers = []
     checks = []
     for provider in providers:
@@ -98,13 +101,18 @@ def main():
         try:
             offer = scrape_provider(provider, timestamp)
             if offer:
+                prior = previous_by_id.get(offer["id"], {})
+                factual_fields = ("title", "credit", "duration", "eligibility", "source_excerpt", "source_url")
+                if all(prior.get(field) == offer.get(field) for field in factual_fields):
+                    offer["content_updated_at"] = prior.get("content_updated_at", prior.get("fetched_at", timestamp))
+                else:
+                    offer["content_updated_at"] = timestamp
                 offers.append(offer)
             checks.append({"provider_id": provider["id"], "status": "verified" if offer else "no_match"})
         except (OSError, ValueError, PermissionError, re.error) as exc:
             checks.append({"provider_id": provider["id"], "status": "unavailable", "reason": type(exc).__name__})
             print(f"{provider['id']}: {type(exc).__name__}", file=sys.stderr)
     payload = {"generated_at": timestamp, "offers": offers, "checks": checks}
-    output = ROOT / "data" / "offers.json"
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"Verified {len(offers)} live offer(s) from {len(providers)} configured provider(s)")
