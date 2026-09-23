@@ -140,7 +140,7 @@ def main():
             if offer.get("valid_until"):
                 schema_offer["priceValidUntil"] = offer["valid_until"]
             structured.append(schema_offer)
-        write_page(out, path, layout(site, path, f"{offer['title']} | {site['brand']}",
+        write_page(out, path, layout(site, path, f"{offer['title']} · {month} | {site['brand']}",
             f"{offer['title']}. {offer['eligibility']}. Official source checked {offer['fetched_at'][:10]}.",
             body, structured, offer["fetched_at"]))
 
