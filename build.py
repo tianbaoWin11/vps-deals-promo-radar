@@ -44,6 +44,7 @@ def layout(site, path, title, description, body, structured, updated):
         canonical=esc(canonical), brand=esc(site["brand"]), niche=esc(site["niche"]),
         og_image=esc(url_for(site["domain"], "og.svg")), updated=esc(updated[:10]),
         body=body, structured="\n".join(jsonld(x) for x in structured),
+        affiliate_note="Some provider links are approved affiliate links. We may earn a commission at no extra cost to you." if site.get("affiliate_active") else "No affiliate links are active.",
     )
 
 
@@ -89,6 +90,7 @@ def main():
         if offer.get("valid_until") and offer["valid_until"] < today:
             continue
         current.append(offer)
+    site["affiliate_active"] = any(o.get("affiliate_url") for o in current)
     updated = data.get("generated_at") or datetime.now(timezone.utc).isoformat(timespec="seconds")
     out = ROOT / "site"
     if out.resolve().parent != ROOT.resolve():
@@ -127,7 +129,9 @@ def main():
             provider_path=esc(f"/providers/{provider['id']}/"), source=esc(offer["source_url"]),
             excerpt=esc(offer["source_excerpt"]), checked=esc(offer["fetched_at"]),
             eligibility=esc(offer["eligibility"]), credit=credit, duration=duration,
-            offer_url=esc(offer["offer_url"]))
+            offer_url=esc(offer.get("affiliate_url", offer["offer_url"])),
+            link_rel="sponsored noopener noreferrer" if offer.get("affiliate_url") else "noopener noreferrer",
+            affiliate_disclosure='<p class="fineprint">Approved affiliate link via ' + esc(offer["affiliate_platform"]) + '. We may earn a commission at no extra cost to you.</p>' if offer.get("affiliate_url") else "")
         structured = [breadcrumb(site["domain"], [("Home", ""), (provider["name"], f"providers/{provider['id']}/"), (offer["title"], path)])]
         if "price" in offer and "currency" in offer:
             schema_offer = {"@context": "https://schema.org", "@type": "Offer", "name": offer["title"],

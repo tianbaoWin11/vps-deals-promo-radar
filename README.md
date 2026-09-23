@@ -27,4 +27,6 @@ The initial Pages host is temporary. Once an owned domain is chosen, set `domain
 
 Credit amounts are not VPS plan prices. No price, expiry, coupon, or commission is inferred. Structured price data is emitted only when the original source provides a verified price and currency.
 
+For monetization after approval, enter the approved HTTPS tracking URL and its platform (`CJ`, `ShareASale`, or `Impact`) for that provider in `.ilang/site.ilang`, and set `affiliate_approved:true` only after checking that program's terms for this site and offer. The detail page then labels the paid link, sets `rel="sponsored"`, and retains the direct official source link. Empty fields keep the original official link. No commission amount is asserted.
+
 Site rules are described in I-Lang in `.ilang/site.ilang`; protocol information: https://ilang.ai.

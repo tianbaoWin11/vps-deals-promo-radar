@@ -83,6 +83,13 @@ def scrape_provider(provider, timestamp):
     }
     if values.get("credit"):
         offer["credit"] = values["credit"]
+    affiliate_url = provider.get("affiliate_url", "")
+    platform = provider.get("affiliate_platform", "")
+    if provider.get("affiliate_approved", "").lower() == "true" and platform.lower() in {"cj", "shareasale", "impact"}:
+        parsed = urllib.parse.urlsplit(affiliate_url)
+        if parsed.scheme == "https" and parsed.netloc:
+            offer["affiliate_url"] = affiliate_url
+            offer["affiliate_platform"] = platform
     return offer
 
 
@@ -102,7 +109,7 @@ def main():
             offer = scrape_provider(provider, timestamp)
             if offer:
                 prior = previous_by_id.get(offer["id"], {})
-                factual_fields = ("title", "credit", "duration", "eligibility", "source_excerpt", "source_url")
+                factual_fields = ("title", "credit", "duration", "eligibility", "source_excerpt", "source_url", "affiliate_url", "affiliate_platform")
                 if all(prior.get(field) == offer.get(field) for field in factual_fields):
                     offer["content_updated_at"] = prior.get("content_updated_at", prior.get("fetched_at", timestamp))
                 else:

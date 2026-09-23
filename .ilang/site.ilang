@@ -2,9 +2,9 @@
 ::STATE{@SITE|brand:VPS Deals|niche:VPS and cloud hosting offers|domain:https://vps-deals-promo-radar-7iu.pages.dev|locale:en-US|update_hours:6}
 
 ::MODULE{PROVIDERS|title:只读公开的官方来源；改这里后抓取和页面都会变}
-::PROVIDER{id:digitalocean|name:DigitalOcean|home:https://www.digitalocean.com/|source:https://www.digitalocean.com/solutions/small-business-website-hosting|pattern:with (?P<credit>\$[\d,]+) in free credit|offer_type:signup_credit|eligibility:Check the official page for eligibility}
-::PROVIDER{id:vultr|name:Vultr|home:https://www.vultr.com/|source:https://docs.vultr.com/platform/create-an-account|pattern:free credits for up to (?P<duration>\d+ days)|offer_type:signup_credit|eligibility:New accounts; payment method required}
-::PROVIDER{id:hostinger|name:Hostinger|home:https://www.hostinger.com/vps-hosting|source:https://www.hostinger.com/coupons|pattern:|offer_type:monitor_only|eligibility:Check official page for current VPS terms}
+::PROVIDER{id:digitalocean|name:DigitalOcean|home:https://www.digitalocean.com/|source:https://www.digitalocean.com/solutions/small-business-website-hosting|pattern:with (?P<credit>\$[\d,]+) in free credit|offer_type:signup_credit|eligibility:Check the official page for eligibility|affiliate_platform:|affiliate_url:|affiliate_approved:false}
+::PROVIDER{id:vultr|name:Vultr|home:https://www.vultr.com/|source:https://docs.vultr.com/platform/create-an-account|pattern:free credits for up to (?P<duration>\d+ days)|offer_type:signup_credit|eligibility:New accounts; payment method required|affiliate_platform:|affiliate_url:|affiliate_approved:false}
+::PROVIDER{id:hostinger|name:Hostinger|home:https://www.hostinger.com/vps-hosting|source:https://www.hostinger.com/coupons|pattern:|offer_type:monitor_only|eligibility:Check official page for current VPS terms|affiliate_platform:|affiliate_url:|affiliate_approved:false}
 
 ::MODULE{FIELDS|title:只存抓到的字段}
   id provider_id title credit duration offer_url source_url fetched_at eligibility
@@ -16,6 +16,7 @@
   仅带已验证价格的优惠才输出含 price 的 Offer JSON-LD
 
 ::RULE{更新频率:6小时；抓取失败或匹配不到⇒该优惠不再展示为当前活动}
+::RULE{affiliate_approved:true 且 affiliate_platform 为 CJ/ShareASale/Impact 且 affiliate_url 是 HTTPS⇒详情页可使用联盟链接并披露}
 ::RULE{robots.txt 不允许或读取失败⇒跳过，不绕过限制}
 ::RULE{valid_until 已过⇒下架；无截止日期⇒不填写}
 ::BOUNDARY{never:编优惠 编价格 编佣金 品牌词竞价 cookie注入 自买自推|scope:permanent}
