@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://vps-deal-ledger.pages.dev/sitemap.xml
