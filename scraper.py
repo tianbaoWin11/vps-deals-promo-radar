@@ -12,7 +12,7 @@ from html.parser import HTMLParser
 
 from config import ROOT, load_config
 
-UA = "VPSDealLedger/1.0 (public-offer-monitor; no login)"
+UA = "VPSDeals/1.0 (public-offer-monitor; no login)"
 
 
 class TextExtractor(HTMLParser):
