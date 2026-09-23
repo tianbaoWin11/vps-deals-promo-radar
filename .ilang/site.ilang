@@ -1,5 +1,5 @@
 ::ILANG [TYPE:config][PROJECT:vps-deals][LANG:zh]
-::STATE{@SITE|brand:VPS Deals|niche:VPS and cloud hosting offers|domain:https://vps-deals-promo-radar.pages.dev|locale:en-US|update_hours:6}
+::STATE{@SITE|brand:VPS Deals|niche:VPS and cloud hosting offers|domain:https://vps-deals-promo-radar-7iu.pages.dev|locale:en-US|update_hours:6}
 
 ::MODULE{PROVIDERS|title:只读公开的官方来源；改这里后抓取和页面都会变}
 ::PROVIDER{id:digitalocean|name:DigitalOcean|home:https://www.digitalocean.com/|source:https://www.digitalocean.com/solutions/small-business-website-hosting|pattern:with (?P<credit>\$[\d,]+) in free credit|offer_type:signup_credit|eligibility:Check the official page for eligibility}

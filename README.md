@@ -2,7 +2,7 @@
 
 An English-language VPS and cloud hosting offer ledger built from public, official provider pages. The site shows the original source and check time for every published claim. It does not use affiliate links until an approved program and its terms are confirmed.
 
-Production URL: https://vps-deals-promo-radar.pages.dev/ (verify after deployment)
+Production URL: https://vps-deals-promo-radar-7iu.pages.dev/ (verify after deployment)
 
 ## Run locally
 
