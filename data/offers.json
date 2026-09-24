@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-24T06:30:32+00:00",
+  "generated_at": "2026-09-24T12:30:35+00:00",
   "offers": [
     {
       "id": "digitalocean-signup-credit",
@@ -10,7 +10,7 @@
       "eligibility": "Check the official page for eligibility",
       "offer_url": "https://www.digitalocean.com/solutions/small-business-website-hosting",
       "source_url": "https://www.digitalocean.com/solutions/small-business-website-hosting",
-      "fetched_at": "2026-09-24T06:30:32+00:00",
+      "fetched_at": "2026-09-24T12:30:35+00:00",
       "source_excerpt": "with $100 in free credit",
       "credit": "$100",
       "content_updated_at": "2026-09-23T16:28:49+00:00"
@@ -24,7 +24,7 @@
       "eligibility": "New accounts; payment method required",
       "offer_url": "https://docs.vultr.com/platform/create-an-account",
       "source_url": "https://docs.vultr.com/platform/create-an-account",
-      "fetched_at": "2026-09-24T06:30:32+00:00",
+      "fetched_at": "2026-09-24T12:30:35+00:00",
       "source_excerpt": "free credits for up to 30 days",
       "content_updated_at": "2026-09-23T16:28:49+00:00"
     }
