@@ -2,7 +2,7 @@
 
 An English-language VPS and cloud hosting offer ledger built from public, official provider pages. The site shows the original source and check time for every published claim. It does not use affiliate links until an approved program and its terms are confirmed.
 
-Production URL: https://vps-deals-promo-radar-7iu.pages.dev/
+Production URL: https://vpsdealbeacon.com/
 
 ## Run locally
 
@@ -21,7 +21,7 @@ Edit `.ilang/site.ilang`. Each provider has an official home page, public source
 
 ## Automatic checks and deployment
 
-`.github/workflows/update.yml` checks every six hours, runs the scraper and static builder, then commits the latest verified snapshot. Cloudflare Pages should connect to the public GitHub repository with build command `python build.py` and output directory `site`. A GitHub Actions schedule may be delayed by GitHub, and source sites may refuse a request. A failed request never keeps an unverified old offer active.
+`.github/workflows/update.yml` checks every six hours, runs the scraper and static builder, then commits the latest verified snapshot. Cloudflare Pages uses build command `exit 0` and output directory `site`; GitHub Actions commits the built files. A GitHub Actions schedule may be delayed by GitHub, and source sites may refuse a request. A failed request archives an offer page instead of presenting an unverified old offer as current.
 
 The initial Pages host is temporary. Once an owned domain is chosen, set `domain` in `.ilang/site.ilang`, rebuild, and connect that domain to Pages so canonical URLs and the sitemap use the owned domain.
 

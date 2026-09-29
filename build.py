@@ -95,6 +95,12 @@ def main():
     out = ROOT / "site"
     if out.resolve().parent != ROOT.resolve():
         raise RuntimeError("site output must remain inside the repository")
+    # Keep published deal URLs available when a later source check no longer
+    # verifies an offer. The archived page must not present it as current.
+    previous_deal_paths = {
+        page.relative_to(out).parent.as_posix() + "/"
+        for page in out.glob("deals/*/index.html")
+    } if out.exists() else set()
     if out.exists():
         shutil.rmtree(out)
     out.mkdir(exist_ok=True)
@@ -152,7 +158,21 @@ def main():
         f"Compare which VPS providers have verified published offers as of {updated[:10]}.",
         body, [itemlist(site["domain"], current)], updated))
 
-    paths = ["", "compare/"] + [f"providers/{p['id']}/" for p in providers] + [f"deals/{o['id']}/" for o in current]
+    current_deal_paths = {f"deals/{o['id']}/" for o in current}
+    archived_paths = sorted(previous_deal_paths - current_deal_paths)
+    for path in archived_paths:
+        provider = next((p for p in providers if path.startswith(f"deals/{p['id']}-")), None)
+        source = (f'<p><a href="{esc(provider["source"])}" rel="noopener noreferrer">'
+                  'Check the official source for current terms →</a></p>') if provider else ""
+        body = ('<section class="page-hero wrap"><h1>Offer not currently verified</h1>'
+                '<p>This previously published offer is not currently verified. '
+                'Check the provider’s official source before signing up.</p>'
+                + source + '</section>')
+        write_page(out, path, layout(site, path, f"Offer not currently verified | {site['brand']}",
+            "This previously published offer is not currently verified.", body, [], updated))
+
+    paths = (["", "compare/"] + [f"providers/{p['id']}/" for p in providers]
+             + sorted(current_deal_paths) + archived_paths)
     # lastmod records material offer changes, not each routine check.
     offer_times = {f"deals/{o['id']}/": o.get("content_updated_at", o["fetched_at"])[:10] for o in current}
     if current:
@@ -165,6 +185,8 @@ def main():
             (o.get("content_updated_at", o["fetched_at"])[:10] for o in own), default=latest_material)
     offer_times[""] = latest_material
     offer_times["compare/"] = latest_material
+    for path in archived_paths:
+        offer_times[path] = today
     sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     sitemap += "".join(f'<url><loc>{esc(url_for(site["domain"], path))}</loc><lastmod>{esc(offer_times[path])}</lastmod></url>\n' for path in paths)
     (out / "sitemap.xml").write_text(sitemap + "</urlset>\n", encoding="utf-8")
