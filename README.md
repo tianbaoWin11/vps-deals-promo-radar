@@ -23,7 +23,7 @@ Edit `.ilang/site.ilang`. Each provider has an official home page, public source
 
 `.github/workflows/update.yml` checks every six hours, runs the scraper and static builder, then commits the latest verified snapshot. Cloudflare Pages uses build command `exit 0` and output directory `site`; GitHub Actions commits the built files. A GitHub Actions schedule may be delayed by GitHub, and source sites may refuse a request. A failed request archives an offer page instead of presenting an unverified old offer as current.
 
-The initial Pages host is temporary. Once an owned domain is chosen, set `domain` in `.ilang/site.ilang`, rebuild, and connect that domain to Pages so canonical URLs and the sitemap use the owned domain.
+The owned domain is connected to Pages. `functions/_middleware.js` redirects the temporary Pages host to the owned domain with a 301 while preserving paths and query strings. The domain in `.ilang/site.ilang` drives canonical URLs and the sitemap.
 
 Credit amounts are not VPS plan prices. No price, expiry, coupon, or commission is inferred. Structured price data is emitted only when the original source provides a verified price and currency.
 
