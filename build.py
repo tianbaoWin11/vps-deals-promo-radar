@@ -117,7 +117,14 @@ def main():
     for provider in providers:
         own = [o for o in current if o["provider_id"] == provider["id"]]
         own_cards = "".join(card(o, provider) for o in own) or '<div class="empty">No current offer passed verification for this provider. Check the official source directly.</div>'
-        body = read_template("provider.html").substitute(name=esc(provider["name"]), source=esc(provider["source"]), home=esc(provider["home"]), cards=own_cards, count=len(own))
+        verification_note = (
+            f"No current {provider['name']} offer passed this site's source check. "
+            "Use the official source and provider website above to check the latest terms directly."
+            if not own else
+            f"The {provider['name']} offer cards below link to verified claims, their check dates, and direct official sources."
+        )
+        body = read_template("provider.html").substitute(name=esc(provider["name"]), source=esc(provider["source"]),
+            home=esc(provider["home"]), cards=own_cards, count=len(own), verification_note=esc(verification_note))
         path = f"providers/{provider['id']}/"
         structured = [breadcrumb(site["domain"], [("Home", ""), (provider["name"], path)])]
         if own and all("price" in o and "currency" in o for o in own):
@@ -158,6 +165,17 @@ def main():
         f"Compare which VPS providers have verified published offers as of {updated[:10]}.",
         body, [itemlist(site["domain"], current)], updated))
 
+    editorial_pages = (
+        ("about/", "About VPS Deals", "How VPS Deals checks public VPS and cloud hosting offers."),
+        ("contact/", "Contact VPS Deals", "Contact the VPS Deals site editor about corrections or questions."),
+        ("privacy/", "Privacy Policy", "How VPS Deals handles site visits and email correspondence."),
+    )
+    for path, title, description in editorial_pages:
+        body = read_template(path.rstrip("/") + ".html").substitute(
+            contact_email=esc(site["contact_email"]))
+        write_page(out, path, layout(site, path, f"{title} | {site['brand']}",
+            description, body, [], updated))
+
     current_deal_paths = {f"deals/{o['id']}/" for o in current}
     archived_paths = sorted(previous_deal_paths - current_deal_paths)
     for path in archived_paths:
@@ -171,7 +189,8 @@ def main():
         write_page(out, path, layout(site, path, f"Offer not currently verified | {site['brand']}",
             "This previously published offer is not currently verified.", body, [], updated))
 
-    paths = (["", "compare/"] + [f"providers/{p['id']}/" for p in providers]
+    paths = (["", "compare/"] + [path for path, _, _ in editorial_pages]
+             + [f"providers/{p['id']}/" for p in providers]
              + sorted(current_deal_paths) + archived_paths)
     # lastmod records material offer changes, not each routine check.
     offer_times = {f"deals/{o['id']}/": o.get("content_updated_at", o["fetched_at"])[:10] for o in current}
@@ -185,6 +204,8 @@ def main():
             (o.get("content_updated_at", o["fetched_at"])[:10] for o in own), default=latest_material)
     offer_times[""] = latest_material
     offer_times["compare/"] = latest_material
+    for path, _, _ in editorial_pages:
+        offer_times[path] = today
     for path in archived_paths:
         offer_times[path] = today
     sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
