@@ -1,6 +1,7 @@
 # ::ILANG [TYPE:code][ROLE:从已核验数据生成静态站][BOUNDARY:不补造缺失价格或期限]
 # ::RULE{品牌、厂商、域名均读取:.ilang/site.ilang}
 import html
+import hashlib
 import json
 import re
 import shutil
@@ -43,6 +44,7 @@ def layout(site, path, title, description, body, structured, updated):
         lang=esc(site["locale"]), title=esc(title), description=esc(description),
         canonical=esc(canonical), brand=esc(site["brand"]), niche=esc(site["niche"]),
         og_image=esc(url_for(site["domain"], "og.svg")), updated=esc(updated[:10]),
+        style_version=esc(site["style_version"]),
         body=body, structured="\n".join(jsonld(x) for x in structured),
         affiliate_note="Some provider links are approved affiliate links. We may earn a commission at no extra cost to you." if site.get("affiliate_active") else "No affiliate links are active.",
     )
@@ -70,6 +72,7 @@ def write_page(out, path, contents):
 
 def main():
     site, providers = load_config()
+    site["style_version"] = hashlib.sha256((ROOT / "templates" / "style.css").read_bytes()).hexdigest()[:12]
     data_path = ROOT / "data" / "offers.json"
     data = json.loads(data_path.read_text(encoding="utf-8")) if data_path.exists() else {"offers": [], "generated_at": ""}
     offers = data.get("offers", [])
