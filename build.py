@@ -41,7 +41,8 @@ def card(offer, provider):
 def layout(site, path, title, description, body, structured, updated):
     canonical = url_for(site["domain"], path)
     analytics_id = site.get("analytics_measurement_id", "")
-    analytics_tag = (f'<script defer src="/analytics.js" data-measurement-id="{esc(analytics_id)}"></script>'
+    analytics_tag = (f'<script defer src="/analytics.js" data-measurement-id="{esc(analytics_id)}" '
+                     f'data-site-host="{esc(urlsplit(site["domain"]).hostname)}"></script>'
                      if analytics_id else "")
     analytics_settings = ('<button type="button" id="analytics-settings" class="footer-button">Cookie choices</button>'
                           if analytics_id else "")

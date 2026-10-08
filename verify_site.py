@@ -14,6 +14,7 @@ def main():
     output = ROOT / "site"
     domain = site["domain"].rstrip("/")
     analytics_id = site.get("analytics_measurement_id", "")
+    site_host = urlsplit(site["domain"]).hostname
     html_pages = sorted(output.rglob("index.html"))
     if not html_pages:
         raise AssertionError("no generated HTML pages")
@@ -29,7 +30,8 @@ def main():
         if "lorem ipsum" in content.lower() or "coming soon" in content.lower():
             raise AssertionError(f"placeholder copy: {page}")
         if analytics_id:
-            tag = f'<script defer src="/analytics.js" data-measurement-id="{analytics_id}"></script>'
+            tag = (f'<script defer src="/analytics.js" data-measurement-id="{analytics_id}" '
+                   f'data-site-host="{site_host}"></script>')
             if content.count(tag) != 1:
                 raise AssertionError(f"analytics consent script missing or duplicated: {page}")
             if "googletagmanager.com/gtag/js" in content:

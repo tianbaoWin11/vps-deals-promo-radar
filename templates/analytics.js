@@ -1,6 +1,7 @@
 (() => {
   const tag = document.currentScript;
   const id = tag && tag.dataset.measurementId;
+  const siteHost = tag && tag.dataset.siteHost;
   const notice = document.getElementById("analytics-consent");
   const settings = document.getElementById("analytics-settings");
   const key = "vpsdeals.analytics.choice";
@@ -13,6 +14,7 @@
     try { localStorage.setItem(key, value); } catch (_) { /* This visit still uses the choice. */ }
   }
   function loadAnalytics() {
+    if (window.location.hostname !== siteHost) return;
     if (window.vpsDealsAnalyticsLoaded) return;
     window.vpsDealsAnalyticsLoaded = true;
     window.dataLayer = window.dataLayer || [];
