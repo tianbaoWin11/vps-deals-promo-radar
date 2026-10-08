@@ -27,6 +27,8 @@ Source-checked guides live in `content/articles/*.json`; `build.py` generates th
 
 The owned domain is connected to Pages. `functions/_middleware.js` redirects the temporary Pages host to the owned domain with a 301 while preserving paths and query strings. The domain in `.ilang/site.ilang` drives canonical URLs and the sitemap.
 
+The GA4 measurement ID in `.ilang/site.ilang` is a public site identifier. `build.py` adds a local consent script to each page; that script loads Google's tag only after a visitor selects "Allow analytics." The privacy page explains this choice, and the footer lets visitors change it. Optional Analytics data sharing and enhanced measurement were left off during setup. Do not infer traffic from a successful tag deployment; read actual GA4 reports.
+
 Credit amounts are not VPS plan prices. No price, expiry, coupon, or commission is inferred. Structured price data is emitted only when the original source provides a verified price and currency.
 
 For monetization after approval, enter the approved HTTPS tracking URL and its platform (`CJ`, `ShareASale`, or `Impact`) for that provider in `.ilang/site.ilang`, and set `affiliate_approved:true` only after checking that program's terms for this site and offer. The detail page then labels the paid link, sets `rel="sponsored"`, and retains the direct official source link. Empty fields keep the original official link. No commission amount is asserted.

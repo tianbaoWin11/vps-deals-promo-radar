@@ -40,12 +40,26 @@ def card(offer, provider):
 
 def layout(site, path, title, description, body, structured, updated):
     canonical = url_for(site["domain"], path)
+    analytics_id = site.get("analytics_measurement_id", "")
+    analytics_tag = (f'<script defer src="/analytics.js" data-measurement-id="{esc(analytics_id)}"></script>'
+                     if analytics_id else "")
+    analytics_settings = ('<button type="button" id="analytics-settings" class="footer-button">Cookie choices</button>'
+                          if analytics_id else "")
+    analytics_notice = (
+        '<section id="analytics-consent" class="analytics-consent" aria-label="Analytics choice" hidden>'
+        '<p>Allow Google Analytics to measure visits to this site? We load it only if you choose Allow. '
+        'You can change this choice later in the footer. <a href="/privacy/">Privacy Policy</a></p>'
+        '<div class="analytics-actions"><button type="button" data-analytics-choice="decline">Decline</button>'
+        '<button type="button" data-analytics-choice="allow">Allow analytics</button></div></section>'
+        if analytics_id else "")
     return read_template("base.html").substitute(
         lang=esc(site["locale"]), title=esc(title), description=esc(description),
         canonical=esc(canonical), brand=esc(site["brand"]), niche=esc(site["niche"]),
         og_image=esc(url_for(site["domain"], "og.svg")), updated=esc(updated[:10]),
         style_version=esc(site["style_version"]),
         body=body, structured="\n".join(jsonld(x) for x in structured),
+        analytics_tag=analytics_tag, analytics_settings=analytics_settings,
+        analytics_notice=analytics_notice,
         affiliate_note="Some provider links are approved affiliate links. We may earn a commission at no extra cost to you." if site.get("affiliate_active") else "No affiliate links are active.",
     )
 
@@ -299,6 +313,8 @@ def main():
     (out / "sitemap.xml").write_text(sitemap + "</urlset>\n", encoding="utf-8")
     (out / "robots.txt").write_text("User-agent: *\nAllow: /\nSitemap: " + url_for(site["domain"], "sitemap.xml") + "\n", encoding="utf-8")
     (out / "style.css").write_text((ROOT / "templates" / "style.css").read_text(encoding="utf-8"), encoding="utf-8")
+    if site.get("analytics_measurement_id"):
+        (out / "analytics.js").write_text((ROOT / "templates" / "analytics.js").read_text(encoding="utf-8"), encoding="utf-8")
     (out / "og.svg").write_text((ROOT / "templates" / "og.svg").read_text(encoding="utf-8").replace("{{BRAND}}", esc(site["brand"])), encoding="utf-8")
     print(f"Built {len(paths)} HTML pages into {out}")
 

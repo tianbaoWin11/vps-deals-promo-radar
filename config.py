@@ -1,6 +1,7 @@
 # ::ILANG [TYPE:code][ROLE:解析站点配置][BOUNDARY:不从代码补造厂商或优惠]
 # ::RULE{站点配置唯一来源:.ilang/site.ilang}
 from pathlib import Path
+import re
 
 ROOT = Path(__file__).resolve().parent
 CONFIG = ROOT / ".ilang" / "site.ilang"
@@ -33,6 +34,9 @@ def load_config(path=CONFIG):
             providers.append(provider)
     if not site or not providers:
         raise ValueError("site and providers are required in site.ilang")
+    analytics_id = site.get("analytics_measurement_id", "")
+    if analytics_id and not re.fullmatch(r"G-[A-Z0-9]+", analytics_id):
+        raise ValueError("analytics_measurement_id must be a GA4 measurement ID")
     if len({p["id"] for p in providers}) != len(providers):
         raise ValueError("provider ids must be unique")
     return site, providers

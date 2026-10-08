@@ -13,6 +13,7 @@ def main():
     site, _ = load_config()
     output = ROOT / "site"
     domain = site["domain"].rstrip("/")
+    analytics_id = site.get("analytics_measurement_id", "")
     html_pages = sorted(output.rglob("index.html"))
     if not html_pages:
         raise AssertionError("no generated HTML pages")
@@ -27,6 +28,12 @@ def main():
             raise AssertionError(f"canonical mismatch: {page}")
         if "lorem ipsum" in content.lower() or "coming soon" in content.lower():
             raise AssertionError(f"placeholder copy: {page}")
+        if analytics_id:
+            tag = f'<script defer src="/analytics.js" data-measurement-id="{analytics_id}"></script>'
+            if content.count(tag) != 1:
+                raise AssertionError(f"analytics consent script missing or duplicated: {page}")
+            if "googletagmanager.com/gtag/js" in content:
+                raise AssertionError(f"Google tag loaded before consent: {page}")
         for href in re.findall(r'href="([^"]+)"', content):
             if not href.startswith("/") or href.startswith("//"):
                 continue
@@ -50,6 +57,12 @@ def main():
     robots = (output / "robots.txt").read_text(encoding="utf-8")
     if f"Sitemap: {domain}/sitemap.xml" not in robots:
         raise AssertionError("robots.txt sitemap URL mismatch")
+    if analytics_id:
+        if not (output / "analytics.js").exists():
+            raise AssertionError("analytics.js missing")
+        privacy = (output / "privacy" / "index.html").read_text(encoding="utf-8")
+        if "Google Analytics 4" not in privacy or "Cookie choices" not in privacy:
+            raise AssertionError("privacy page does not explain analytics choice")
     print(f"Verified {len(html_pages)} HTML pages, canonical URLs, local links, and sitemap entries")
 
 

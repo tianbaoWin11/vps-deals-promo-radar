@@ -19,3 +19,14 @@
 /* Source-checked guides */
 .guide-card{min-height:230px}.guide-hero{padding-bottom:44px}.guide-answer{font-family:'Space Grotesk',sans-serif;font-size:clamp(21px,2.5vw,28px)!important;line-height:1.45!important;color:var(--ink)!important;max-width:890px!important}.guide-layout{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:36px;align-items:start;padding-bottom:90px}.guide-content{min-width:0;background:#fff;border:1px solid var(--line);padding:40px}.guide-content section{margin-top:42px}.guide-content h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(26px,3vw,36px);line-height:1.2;letter-spacing:-.04em}.guide-content p,.guide-content li{color:#475849;font-size:17px;line-height:1.75}.guide-content li{margin:8px 0}.guide-content a{color:var(--green);text-decoration:underline;text-underline-offset:3px}.guide-content td a{font-size:14px}.guide-aside{border:1px solid var(--line);padding:25px;background:#eef3e9;position:sticky;top:20px}.guide-aside p{font-size:14px;color:#475849}.guide-content table{min-width:520px}.guide-content tbody th{font-family:'DM Sans',Arial,sans-serif;font-size:15px}
 @media(max-width:760px){.guide-layout{grid-template-columns:1fr;gap:20px;padding-bottom:60px}.guide-content{padding:24px}.guide-aside{position:static}.guide-content p,.guide-content li{font-size:16px}.site-header nav{gap:10px;font-size:12px}}
+
+/* Analytics is loaded only after a visitor chooses to allow it. */
+.footer-button{border:0;padding:0;background:none;color:inherit;font:inherit;font-weight:700;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.analytics-consent{position:fixed;z-index:50;left:20px;right:20px;bottom:20px;max-width:820px;margin:auto;padding:20px 24px;background:#fff;color:var(--ink);border:1px solid var(--line);box-shadow:0 12px 40px #122b1a44;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.analytics-consent[hidden]{display:none}
+.analytics-consent p{margin:0;font-size:14px;line-height:1.5;max-width:520px}
+.analytics-consent p a{text-decoration:underline;text-underline-offset:3px}
+.analytics-actions{display:flex;gap:10px;flex-shrink:0}
+.analytics-actions button{min-height:42px;padding:10px 14px;border:1px solid var(--green);background:#fff;color:var(--green);font:inherit;font-size:13px;font-weight:700;cursor:pointer}
+.analytics-actions button:last-child{background:var(--green);color:#fff}
+@media(max-width:700px){.analytics-consent{left:10px;right:10px;bottom:10px;padding:16px;display:block}.analytics-actions{margin-top:14px}.analytics-actions button{flex:1}}
