@@ -19,6 +19,8 @@ jobs:
         run: python scraper.py
       - name: Build static site
         run: python build.py
+      - name: Verify pages and sitemap
+        run: python verify_site.py
       - name: Commit verified snapshot
         run: |
           git config user.name "github-actions[bot]"

@@ -5,7 +5,7 @@ import hashlib
 import json
 import re
 import shutil
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from string import Template
 from urllib.parse import urlsplit
@@ -70,6 +70,54 @@ def write_page(out, path, contents):
     target.write_text(contents, encoding="utf-8")
 
 
+def load_articles():
+    directory = ROOT / "content" / "articles"
+    articles = []
+    slugs = set()
+    for source in sorted(directory.glob("*.json")):
+        article = json.loads(source.read_text(encoding="utf-8"))
+        required = {"slug", "title", "description", "primary_keyword", "answer",
+                    "checked_at", "published_at", "sections", "sources"}
+        if not required.issubset(article):
+            raise ValueError(f"article missing required fields: {source}")
+        slug = article["slug"]
+        if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", slug) or slug in slugs:
+            raise ValueError(f"invalid or duplicate article slug: {slug}")
+        if not article["sources"] or not article["sections"]:
+            raise ValueError(f"article needs sections and sources: {source}")
+        for item in article["sources"]:
+            if urlsplit(item["url"]).scheme != "https":
+                raise ValueError(f"article source must be HTTPS: {source}")
+        datetime.fromisoformat(article["checked_at"].replace("Z", "+00:00"))
+        datetime.fromisoformat(article["published_at"])
+        slugs.add(slug)
+        articles.append(article)
+    return sorted(articles, key=lambda item: (item["published_at"], item["slug"]), reverse=True)
+
+
+def render_article_body(article):
+    facts = "".join(
+        f'<tr><th scope="row">{esc(fact["label"])}</th><td>{esc(fact["value"])}</td>'
+        f'<td><a href="{esc(fact["source_url"])}" rel="noopener noreferrer">Official source ↗</a></td></tr>'
+        for fact in article.get("facts", []))
+    fact_table = (f'<div class="table-wrap"><table><thead><tr><th>Check</th><th>Observed result</th>'
+                  f'<th>Source</th></tr></thead><tbody>{facts}</tbody></table></div>') if facts else ""
+    sections = ""
+    for section in article["sections"]:
+        paragraphs = "".join(f"<p>{esc(p)}</p>" for p in section.get("paragraphs", []))
+        bullets = ("<ul>" + "".join(f"<li>{esc(p)}</li>" for p in section["bullets"]) + "</ul>") if section.get("bullets") else ""
+        sections += f'<section><h2>{esc(section["heading"])}</h2>{paragraphs}{bullets}</section>'
+    sources = "".join(
+        f'<li><a href="{esc(item["url"])}" rel="noopener noreferrer">{esc(item["label"])}</a></li>'
+        for item in article["sources"])
+    return read_template("article.html").substitute(
+        title=esc(article["title"]), answer=esc(article["answer"]),
+        checked=esc(article["checked_at"][:10]), published=esc(article["published_at"]),
+        keyword=esc(article["primary_keyword"]), fact_table=fact_table,
+        sections=sections, sources=sources,
+        method=esc(article.get("method", "Facts were checked against the linked official pages.")))
+
+
 def main():
     site, providers = load_config()
     site["style_version"] = hashlib.sha256((ROOT / "templates" / "style.css").read_bytes()).hexdigest()[:12]
@@ -77,7 +125,8 @@ def main():
     data = json.loads(data_path.read_text(encoding="utf-8")) if data_path.exists() else {"offers": [], "generated_at": ""}
     offers = data.get("offers", [])
     provider_by_id = {p["id"]: p for p in providers}
-    today = datetime.now(timezone.utc).date().isoformat()
+    articles = load_articles()
+    today = datetime.now(timezone(timedelta(hours=8))).date().isoformat()
     # The dataset is a historical input; never silently treat an old fetch as live.
     current = []
     for offer in offers:
@@ -112,7 +161,15 @@ def main():
     cards = "".join(card(o, provider_by_id[o["provider_id"]]) for o in current)
     if not cards:
         cards = '<div class="empty">No current offer passed source verification. Browse the official provider pages below.</div>'
-    body = read_template("index.html").substitute(niche=esc(site["niche"]), cards=cards, providers=provider_links, count=len(current), updated=esc(updated[:10]))
+    article_cards = "".join(
+        f'<article class="card guide-card"><div class="eyebrow">GUIDE · {esc(a["published_at"])}</div>'
+        f'<h3><a href="/guides/{esc(a["slug"])}/">{esc(a["title"])}</a></h3>'
+        f'<p>{esc(a["description"])}</p><div class="card-footer"><a class="text-link" '
+        f'href="/guides/{esc(a["slug"])}/">Read guide →</a></div></article>'
+        for a in articles[:3])
+    body = read_template("index.html").substitute(niche=esc(site["niche"]), cards=cards,
+        providers=provider_links, count=len(current), updated=esc(updated[:10]),
+        article_cards=article_cards)
     write_page(out, "", layout(site, "", f"Verified VPS offers · {month} | {site['brand']}",
         f"Official-source VPS and cloud hosting offers checked on {updated[:10]}. Eligibility and source links included.",
         body, [itemlist(site["domain"], current)], updated))
@@ -179,6 +236,26 @@ def main():
         write_page(out, path, layout(site, path, f"{title} | {site['brand']}",
             description, body, [], updated))
 
+    if articles:
+        guide_cards = "".join(
+            f'<article class="card guide-card"><div class="eyebrow">{esc(a["published_at"])}</div>'
+            f'<h3><a href="/guides/{esc(a["slug"])}/">{esc(a["title"])}</a></h3>'
+            f'<p>{esc(a["description"])}</p><div class="card-footer"><a class="text-link" '
+            f'href="/guides/{esc(a["slug"])}/">Read guide →</a></div></article>'
+            for a in articles)
+        guide_body = (f'<section class="page-hero wrap"><div class="eyebrow">RESEARCH NOTES</div>'
+                      f'<h1>VPS guides</h1><p>Practical checks with dated primary sources.</p></section>'
+                      f'<section class="band"><div class="wrap"><div class="cards">{guide_cards}</div></div></section>')
+        write_page(out, "guides/", layout(site, "guides/", f"VPS guides | {site['brand']}",
+            "Source-checked VPS coupon and hosting guides.", guide_body, [], articles[0]["checked_at"]))
+        for article in articles:
+            path = f'guides/{article["slug"]}/'
+            structured = [breadcrumb(site["domain"], [("Home", ""), ("Guides", "guides/"),
+                (article["title"], path)])]
+            write_page(out, path, layout(site, path, f'{article["title"]} | {site["brand"]}',
+                article["description"], render_article_body(article), structured,
+                article["checked_at"]))
+
     current_deal_paths = {f"deals/{o['id']}/" for o in current}
     archived_paths = sorted(previous_deal_paths - current_deal_paths)
     for path in archived_paths:
@@ -192,7 +269,9 @@ def main():
         write_page(out, path, layout(site, path, f"Offer not currently verified | {site['brand']}",
             "This previously published offer is not currently verified.", body, [], updated))
 
-    paths = (["", "compare/"] + [path for path, _, _ in editorial_pages]
+    paths = (["", "compare/"] + (["guides/"] if articles else [])
+             + [f'guides/{article["slug"]}/' for article in articles]
+             + [path for path, _, _ in editorial_pages]
              + [f"providers/{p['id']}/" for p in providers]
              + sorted(current_deal_paths) + archived_paths)
     # lastmod records material offer changes, not each routine check.
@@ -205,10 +284,14 @@ def main():
         own = [o for o in current if o["provider_id"] == provider["id"]]
         offer_times[f"providers/{provider['id']}/"] = max(
             (o.get("content_updated_at", o["fetched_at"])[:10] for o in own), default=latest_material)
-    offer_times[""] = latest_material
+    offer_times[""] = max(latest_material, *(a["published_at"] for a in articles)) if articles else latest_material
     offer_times["compare/"] = latest_material
     for path, _, _ in editorial_pages:
         offer_times[path] = today
+    if articles:
+        offer_times["guides/"] = max(a["checked_at"][:10] for a in articles)
+        for article in articles:
+            offer_times[f'guides/{article["slug"]}/'] = article["checked_at"][:10]
     for path in archived_paths:
         offer_times[path] = today
     sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'

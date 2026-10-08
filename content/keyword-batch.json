@@ -1,0 +1,17 @@
+{
+  "source_note": "User-supplied first batch attributed to the coach; US monthly searches are stated as a 12-month average and were not independently verified here. Search volume is planning input only and is never published as site fact.",
+  "locked_site_keyword": "vps deals",
+  "locked_benchmarks": ["lowendbox.com", "liquidweb.com", "forbes.com"],
+  "items": [
+    {"order": 1, "primary": "hostinger coupon code", "us_monthly_searches": 4400, "related": [{"term": "hostinger promo code", "us_monthly_searches": 1000}, {"term": "hostinger coupon", "us_monthly_searches": 590}, {"term": "hostinger discount code", "us_monthly_searches": 390}, {"term": "coupon for hostinger", "us_monthly_searches": 70}]},
+    {"order": 2, "primary": "hostinger domain coupon code", "us_monthly_searches": 260, "related": []},
+    {"order": 3, "primary": "hostinger vps coupon code", "us_monthly_searches": 140, "related": []},
+    {"order": 4, "primary": "digitalocean promo code", "us_monthly_searches": 320, "related": [{"term": "digitalocean coupon", "us_monthly_searches": 320}, {"term": "digitalocean coupon code", "us_monthly_searches": 320}, {"term": "digitalocean discount code", "us_monthly_searches": 320}, {"term": "promo code for digitalocean", "us_monthly_searches": 320}]},
+    {"order": 5, "primary": "digitalocean free credit", "us_monthly_searches": 110, "related": [{"term": "digitalocean credit", "us_monthly_searches": 50}]},
+    {"order": 6, "primary": "vultr promo code", "us_monthly_searches": 140, "related": [{"term": "vultr promotion code", "us_monthly_searches": 140}, {"term": "vultr coupon", "us_monthly_searches": 50}, {"term": "vultr coupon code", "us_monthly_searches": 50}, {"term": "vultr gift code", "us_monthly_searches": 30}]},
+    {"order": 7, "primary": "coupon contabo", "us_monthly_searches": 110, "related": []},
+    {"order": 8, "primary": "vps black friday", "us_monthly_searches": 110, "related": [{"term": "vps hosting black friday", "us_monthly_searches": 110}, {"term": "black friday vps hosting", "us_monthly_searches": 110}, {"term": "black friday vps deals", "us_monthly_searches": 50}], "note": "Seasonal; publish before November"},
+    {"order": 9, "primary": "racknerd deals", "us_monthly_searches": 90, "related": []},
+    {"order": 10, "primary": "vps hosting deals", "us_monthly_searches": 90, "related": []}
+  ]
+}
