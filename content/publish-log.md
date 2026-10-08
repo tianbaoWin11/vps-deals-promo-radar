@@ -4,3 +4,4 @@
 
 | 日期（北京时间） | 批次行 | 标题 | 线上地址 | 证据 |
 | --- | --- | --- | --- | --- |
+| 2026-10-09 | 1 | Hostinger coupon code: official page check | https://vpsdealbeacon.com/guides/hostinger-coupon-code/ | 公网 HTTP 200；canonical 指向该页；`sitemap.xml` 收录该 URL（本机当日实测）。 |
