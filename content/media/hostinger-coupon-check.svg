@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 320" role="img" aria-labelledby="title desc">
+  <title id="title">How to check a Hostinger coupon</title>
+  <desc id="desc">Three checks: choose the correct product tab, read the plan terms, and confirm the final checkout amount.</desc>
+  <rect width="960" height="320" rx="22" fill="#f4f8ef"/>
+  <text x="44" y="54" fill="#183d2a" font-family="Arial, sans-serif" font-size="27" font-weight="700">Check the offer you will actually buy</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="44" y="92" width="264" height="170" rx="15" fill="#ffffff" stroke="#c6d9c7"/>
+    <circle cx="78" cy="128" r="19" fill="#2e7d43"/><text x="72" y="135" fill="#ffffff" font-size="20" font-weight="700">1</text>
+    <text x="61" y="173" fill="#183d2a" font-size="21" font-weight="700">Product tab</text>
+    <text x="61" y="205" fill="#526556" font-size="16">VPS, web hosting and</text>
+    <text x="61" y="228" fill="#526556" font-size="16">domains differ.</text>
+    <rect x="348" y="92" width="264" height="170" rx="15" fill="#ffffff" stroke="#c6d9c7"/>
+    <circle cx="382" cy="128" r="19" fill="#2e7d43"/><text x="376" y="135" fill="#ffffff" font-size="20" font-weight="700">2</text>
+    <text x="365" y="173" fill="#183d2a" font-size="21" font-weight="700">Plan terms</text>
+    <text x="365" y="205" fill="#526556" font-size="16">Check the term, scope</text>
+    <text x="365" y="228" fill="#526556" font-size="16">and renewal terms.</text>
+    <rect x="652" y="92" width="264" height="170" rx="15" fill="#ffffff" stroke="#c6d9c7"/>
+    <circle cx="686" cy="128" r="19" fill="#2e7d43"/><text x="680" y="135" fill="#ffffff" font-size="20" font-weight="700">3</text>
+    <text x="669" y="173" fill="#183d2a" font-size="21" font-weight="700">Checkout</text>
+    <text x="669" y="205" fill="#526556" font-size="16">Confirm the amount due</text>
+    <text x="669" y="228" fill="#526556" font-size="16">before paying.</text>
+  </g>
+  <text x="44" y="292" fill="#526556" font-family="Arial, sans-serif" font-size="14">Editorial checklist · no completed purchase is claimed</text>
+</svg>

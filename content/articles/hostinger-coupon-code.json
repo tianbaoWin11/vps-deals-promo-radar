@@ -35,6 +35,13 @@
       "source_url": "https://www.hostinger.com/coupons"
     }
   ],
+  "visuals": [
+    {
+      "src": "/media/hostinger-coupon-check.svg",
+      "alt": "Check the exact product tab, plan terms and final checkout amount before relying on a displayed coupon",
+      "caption": "A three-step check for the exact Hostinger product you intend to buy."
+    }
+  ],
   "sections": [
     {
       "heading": "How to check a code for the right product",
