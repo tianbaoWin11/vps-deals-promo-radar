@@ -36,15 +36,15 @@ def main():
                 raise AssertionError(f"analytics consent script missing or duplicated: {page}")
             if "googletagmanager.com/gtag/js" in content:
                 raise AssertionError(f"Google tag loaded before consent: {page}")
-        for href in re.findall(r'href="([^"]+)"', content):
-            if not href.startswith("/") or href.startswith("//"):
+        for attribute, value in re.findall(r'(href|src)="([^"]+)"', content):
+            if not value.startswith("/") or value.startswith("//"):
                 continue
-            target_path = unquote(urlsplit(href).path).lstrip("/")
+            target_path = unquote(urlsplit(value).path).lstrip("/")
             target = output / target_path
             if target.is_dir():
                 target = target / "index.html"
             if not target.exists():
-                raise AssertionError(f"broken local link {href} in {page}")
+                raise AssertionError(f"broken local {attribute} {value} in {page}")
         expected_urls.add(canonical)
 
     tree = ElementTree.parse(output / "sitemap.xml")

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">Where to verify a Hostinger domain discount</title>
+  <desc id="desc">Coupon page, domain registration page, and checkout are different checks. A hosting coupon is not proof of a standalone domain discount.</desc>
+  <rect width="800" height="500" rx="26" fill="#eff6e9"/>
+  <text x="52" y="73" fill="#193020" font-family="Arial,sans-serif" font-size="36" font-weight="700">Follow the product, not the code</text>
+  <text x="52" y="113" fill="#475849" font-family="Arial,sans-serif" font-size="23">Three different places answer three different questions.</text>
+  <rect x="50" y="160" width="220" height="250" rx="18" fill="#fff" stroke="#b8d4b5" stroke-width="3"/>
+  <rect x="290" y="160" width="220" height="250" rx="18" fill="#fff" stroke="#b8d4b5" stroke-width="3"/>
+  <rect x="530" y="160" width="220" height="250" rx="18" fill="#fff" stroke="#b8d4b5" stroke-width="3"/>
+  <circle cx="92" cy="203" r="23" fill="#215c38"/><text x="84" y="213" fill="#fff" font-family="Arial,sans-serif" font-size="27" font-weight="700">1</text>
+  <circle cx="332" cy="203" r="23" fill="#215c38"/><text x="324" y="213" fill="#fff" font-family="Arial,sans-serif" font-size="27" font-weight="700">2</text>
+  <circle cx="572" cy="203" r="23" fill="#215c38"/><text x="564" y="213" fill="#fff" font-family="Arial,sans-serif" font-size="27" font-weight="700">3</text>
+  <text x="69" y="262" fill="#193020" font-family="Arial,sans-serif" font-size="25" font-weight="700">Coupons</text>
+  <text x="69" y="304" fill="#475849" font-family="Arial,sans-serif" font-size="22">Which product</text><text x="69" y="336" fill="#475849" font-family="Arial,sans-serif" font-size="22">shows a code?</text>
+  <text x="309" y="262" fill="#193020" font-family="Arial,sans-serif" font-size="25" font-weight="700">Domains</text>
+  <text x="309" y="304" fill="#475849" font-family="Arial,sans-serif" font-size="22">What term and</text><text x="309" y="336" fill="#475849" font-family="Arial,sans-serif" font-size="22">renewal apply?</text>
+  <text x="549" y="262" fill="#193020" font-family="Arial,sans-serif" font-size="25" font-weight="700">Checkout</text>
+  <text x="549" y="304" fill="#475849" font-family="Arial,sans-serif" font-size="22">What is due</text><text x="549" y="336" fill="#475849" font-family="Arial,sans-serif" font-size="22">before paying?</text>
+  <text x="52" y="461" fill="#215c38" font-family="Arial,sans-serif" font-size="22" font-weight="700">A hosting code does not confirm a domain discount.</text>
+</svg>

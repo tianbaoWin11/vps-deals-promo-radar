@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">Compare standalone and bundled Hostinger domain offers</title>
+  <desc id="desc">A standalone domain and a free domain bundled with annual hosting have different eligibility and renewal checks.</desc>
+  <rect width="800" height="500" rx="26" fill="#f7f5e9"/>
+  <text x="50" y="72" fill="#193020" font-family="Arial,sans-serif" font-size="36" font-weight="700">Two paths, different terms</text>
+  <text x="50" y="112" fill="#475849" font-family="Arial,sans-serif" font-size="23">Choose the path that matches what you are buying.</text>
+  <rect x="48" y="154" width="337" height="270" rx="18" fill="#fff" stroke="#b8d4b5" stroke-width="3"/>
+  <rect x="415" y="154" width="337" height="270" rx="18" fill="#fff" stroke="#b8d4b5" stroke-width="3"/>
+  <text x="72" y="207" fill="#215c38" font-family="Arial,sans-serif" font-size="29" font-weight="700">Standalone domain</text>
+  <text x="439" y="207" fill="#215c38" font-family="Arial,sans-serif" font-size="29" font-weight="700">Hosting bundle</text>
+  <circle cx="85" cy="262" r="10" fill="#70b978"/><text x="109" y="269" fill="#193020" font-family="Arial,sans-serif" font-size="23">Exact extension</text>
+  <circle cx="85" cy="316" r="10" fill="#70b978"/><text x="109" y="323" fill="#193020" font-family="Arial,sans-serif" font-size="23">Registration term</text>
+  <circle cx="85" cy="370" r="10" fill="#70b978"/><text x="109" y="377" fill="#193020" font-family="Arial,sans-serif" font-size="23">Renewal amount</text>
+  <circle cx="452" cy="262" r="10" fill="#70b978"/><text x="476" y="269" fill="#193020" font-family="Arial,sans-serif" font-size="23">Eligible annual plan</text>
+  <circle cx="452" cy="316" r="10" fill="#70b978"/><text x="476" y="323" fill="#193020" font-family="Arial,sans-serif" font-size="23">Included extension</text>
+  <circle cx="452" cy="370" r="10" fill="#70b978"/><text x="476" y="377" fill="#193020" font-family="Arial,sans-serif" font-size="23">After-year renewal</text>
+  <text x="51" y="466" fill="#475849" font-family="Arial,sans-serif" font-size="20">Use the provider checkout for the final total and eligibility.</text>
+</svg>

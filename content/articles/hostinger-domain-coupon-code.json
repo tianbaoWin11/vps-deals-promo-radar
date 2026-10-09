@@ -1,0 +1,86 @@
+{
+  "slug": "hostinger-domain-coupon-code",
+  "batch_order": 2,
+  "primary_keyword": "hostinger domain coupon code",
+  "related_keywords": [],
+  "title": "Hostinger domain coupon code: check the product first",
+  "description": "A dated check of Hostinger's domain promotion, free-domain bundle and coupon page, with a way to verify the final domain cost.",
+  "answer": "On October 10, 2026, we could not verify a standalone domain coupon code on Hostinger's US coupon page. Its separate domain page instead showed a first-year .com promotion tied to a three-year term; a free first-year domain was tied to annual hosting. Check the exact name, term and renewal amount at checkout.",
+  "checked_at": "2026-10-10T00:45:26+08:00",
+  "published_at": "2026-10-10",
+  "facts": [
+    {
+      "label": "Products on the coupon page",
+      "value": "Web hosting, AI Builder and VPS hosting tabs; no standalone domain tab observed",
+      "source_url": "https://www.hostinger.com/coupons"
+    },
+    {
+      "label": "Separate domain promotion",
+      "value": "The observed .com first-year promotion requires a three-year registration term; standard renewal rates apply afterward",
+      "source_url": "https://www.hostinger.com/domains"
+    },
+    {
+      "label": "Free domain bundle",
+      "value": "Hostinger describes a free first-year domain with an annual hosting plan, subject to the eligible plan and extension",
+      "source_url": "https://www.hostinger.com/free-domain"
+    }
+  ],
+  "visuals": [
+    {
+      "src": "/media/hostinger-domain-path.svg",
+      "alt": "Three checks: coupon page for the product, domain page for term and renewal, then checkout for amount due",
+      "caption": "Our check path separates a hosting code from a standalone domain registration."
+    },
+    {
+      "src": "/media/hostinger-domain-checklist.svg",
+      "alt": "Standalone domain: extension, term and renewal. Hosting bundle: annual plan, included extension and renewal",
+      "caption": "The two purchase paths have different conditions; verify the path you will actually buy."
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Why a hosting coupon is not a domain coupon",
+      "paragraphs": [
+        "Hostinger's coupon page displayed plan cards under Web hosting, AI Builder and VPS hosting when we checked the US English page. We did not see a standalone domain registration tab there. A code printed on a hosting card is evidence for that card's offer, not proof that the same code reduces a separate domain order.",
+        "Our cross-page check follows the product the buyer wants: coupon page for hosting plans, domain page for registration terms, and the actual cart for the payable total. We did not enter a code into a domain checkout or complete a purchase, so we do not call any standalone domain code verified."
+      ]
+    },
+    {
+      "heading": "What the domain page actually offers",
+      "paragraphs": [
+        "On the US domain page, Hostinger displayed a first-year .com promotion with a condition that the buyer choose a three-year term. The page also says standard renewal rates apply after year one. That is an advertised registration offer with a term condition; it is not evidence that a coupon code works for every extension or term.",
+        "Before selecting a domain, enter the exact name and extension in the official domain search. Compare the total due for the full registration period with the later renewal rate. If the name is unavailable or the term changes, the observed promotion may not describe the order in your cart."
+      ]
+    },
+    {
+      "heading": "A free domain with hosting is a different purchase",
+      "paragraphs": [
+        "Hostinger's free-domain page describes a first-year domain included with an annual hosting plan. The eligible extension and plan must be checked on that path. The coupon page's Web hosting cards also mention a first-year domain, but that does not make a standalone domain purchase free.",
+        "If you only need a domain, compare standalone registration. If you also need hosting, compare the full hosting commitment, the included domain period and later renewals. We did not find proof on these pages that a VPS purchase by itself includes the same domain benefit."
+      ]
+    },
+    {
+      "heading": "Questions buyers ask",
+      "paragraphs": [
+        "Is there a Hostinger domain coupon code? Our October 10 check did not verify one for standalone registration on the official coupon page. Use the live domain search and cart to see whether a code is accepted for your exact order.",
+        "Can I use a hosting code on a domain? A code shown beside a hosting plan does not establish that it applies to a separate domain. Treat the two carts and their terms separately.",
+        "Does free for the first year mean the domain stays free? No such conclusion follows from the free-domain page. Its offer is tied to an annual hosting plan and the initial period; check renewal terms before purchase."
+      ]
+    },
+    {
+      "heading": "A short checkout checklist",
+      "bullets": [
+        "Confirm the domain name and extension, not just a generic promotion banner.",
+        "Read the chosen registration or hosting term and the complete amount due now.",
+        "Check the renewal rate and what happens after any included first-year domain period.",
+        "Only call a code valid after the official cart accepts it for the exact product; stop before paying if the total differs from your expectation."
+      ]
+    }
+  ],
+  "method": "The site editor compared Hostinger's US English coupons, domains and free-domain pages on October 10, 2026. We recorded the visible product categories and offer conditions, then wrote a separate buyer decision path. We did not test a domain checkout, use a third-party coupon listing, or purchase anything; therefore no standalone code is claimed as valid.",
+  "sources": [
+    {"label": "Hostinger official coupon page (US English)", "url": "https://www.hostinger.com/coupons"},
+    {"label": "Hostinger official domain registration page (US English)", "url": "https://www.hostinger.com/domains"},
+    {"label": "Hostinger official free-domain page (US English)", "url": "https://www.hostinger.com/free-domain"}
+  ]
+}

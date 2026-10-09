@@ -103,6 +103,12 @@ def load_articles():
         for item in article["sources"]:
             if urlsplit(item["url"]).scheme != "https":
                 raise ValueError(f"article source must be HTTPS: {source}")
+        for visual in article.get("visuals", []):
+            image_path = visual.get("src", "")
+            if (not re.fullmatch(r"/media/[a-z0-9]+(?:-[a-z0-9]+)*\.svg", image_path)
+                    or not (ROOT / "content" / image_path.lstrip("/")).is_file()
+                    or not visual.get("alt") or not visual.get("caption")):
+                raise ValueError(f"article visual must be a sourced local SVG with alt and caption: {source}")
         datetime.fromisoformat(article["checked_at"].replace("Z", "+00:00"))
         datetime.fromisoformat(article["published_at"])
         slugs.add(slug)
@@ -117,6 +123,11 @@ def render_article_body(article):
         for fact in article.get("facts", []))
     fact_table = (f'<div class="table-wrap"><table><thead><tr><th>Check</th><th>Observed result</th>'
                   f'<th>Source</th></tr></thead><tbody>{facts}</tbody></table></div>') if facts else ""
+    visuals = "".join(
+        f'<figure><img src="{esc(item["src"])}" alt="{esc(item["alt"])}" loading="lazy" '
+        f'decoding="async"><figcaption>{esc(item["caption"])}</figcaption></figure>'
+        for item in article.get("visuals", []))
+    visual_gallery = f'<div class="guide-visuals">{visuals}</div>' if visuals else ""
     sections = ""
     for section in article["sections"]:
         paragraphs = "".join(f"<p>{esc(p)}</p>" for p in section.get("paragraphs", []))
@@ -128,7 +139,7 @@ def render_article_body(article):
     return read_template("article.html").substitute(
         title=esc(article["title"]), answer=esc(article["answer"]),
         checked=esc(article["checked_at"][:10]), published=esc(article["published_at"]),
-        keyword=esc(article["primary_keyword"]), fact_table=fact_table,
+        keyword=esc(article["primary_keyword"]), fact_table=fact_table + visual_gallery,
         sections=sections, sources=sources,
         method=esc(article.get("method", "Facts were checked against the linked official pages.")))
 
@@ -316,6 +327,9 @@ def main():
     (out / "style.css").write_text((ROOT / "templates" / "style.css").read_text(encoding="utf-8"), encoding="utf-8")
     if site.get("analytics_measurement_id"):
         (out / "analytics.js").write_text((ROOT / "templates" / "analytics.js").read_text(encoding="utf-8"), encoding="utf-8")
+    media_source = ROOT / "content" / "media"
+    if media_source.exists():
+        shutil.copytree(media_source, out / "media", dirs_exist_ok=True)
     (out / "og.svg").write_text((ROOT / "templates" / "og.svg").read_text(encoding="utf-8").replace("{{BRAND}}", esc(site["brand"])), encoding="utf-8")
     print(f"Built {len(paths)} HTML pages into {out}")
 
