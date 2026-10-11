@@ -6,3 +6,4 @@
 | --- | --- | --- | --- | --- |
 | 2026-10-09 | 1 | Hostinger coupon code: official page check | https://vpsdealbeacon.com/guides/hostinger-coupon-code/ | 公网 HTTP 200；canonical 指向该页；`sitemap.xml` 收录该 URL（本机当日实测）。 |
 | 2026-10-10 | 2 | Hostinger domain coupon code: check the product first | https://vpsdealbeacon.com/guides/hostinger-domain-coupon-code/ | Cloudflare Pages 对提交 `c71c917` 显示 `deploy / success`；公网文章 HTTP 200，canonical 指向自身，sitemap 含该 URL；两张 SVG 图片均 HTTP 200（本机当日实测）。 |
+| 2026-10-11 | 3 | Hostinger VPS coupon code: check the KVM plan | https://vpsdealbeacon.com/guides/hostinger-vps-coupon-code/ | 推送 `de229ff` 后用系统 Chrome 读到线上正文；公网文章 HTTP 200，canonical 为该 URL，`sitemap.xml` HTTP 200 且包含该 URL（本机当日实测）。 |
