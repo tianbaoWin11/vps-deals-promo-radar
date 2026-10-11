@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">Three checks before buying a Hostinger VPS</title>
+  <desc id="desc">First check the VPS coupon card, then the KVM resources, then the cart's upfront total and renewal amount.</desc>
+  <rect width="800" height="500" rx="26" fill="#eaf3ef"/>
+  <text x="48" y="70" fill="#17372e" font-family="Arial,sans-serif" font-size="34" font-weight="700">Choose the VPS, then check the deal</text>
+  <text x="48" y="108" fill="#49635a" font-family="Arial,sans-serif" font-size="22">A displayed code is only one part of the purchase.</text>
+  <rect x="48" y="152" width="220" height="255" rx="18" fill="#ffffff" stroke="#b3d1c4" stroke-width="3"/>
+  <rect x="290" y="152" width="220" height="255" rx="18" fill="#ffffff" stroke="#b3d1c4" stroke-width="3"/>
+  <rect x="532" y="152" width="220" height="255" rx="18" fill="#ffffff" stroke="#b3d1c4" stroke-width="3"/>
+  <circle cx="87" cy="193" r="22" fill="#216850"/><text x="80" y="203" fill="#fff" font-family="Arial,sans-serif" font-size="27" font-weight="700">1</text>
+  <circle cx="329" cy="193" r="22" fill="#216850"/><text x="322" y="203" fill="#fff" font-family="Arial,sans-serif" font-size="27" font-weight="700">2</text>
+  <circle cx="571" cy="193" r="22" fill="#216850"/><text x="564" y="203" fill="#fff" font-family="Arial,sans-serif" font-size="27" font-weight="700">3</text>
+  <text x="67" y="253" fill="#17372e" font-family="Arial,sans-serif" font-size="27" font-weight="700">VPS tab</text>
+  <text x="67" y="298" fill="#49635a" font-family="Arial,sans-serif" font-size="21">Code on the</text><text x="67" y="330" fill="#49635a" font-family="Arial,sans-serif" font-size="21">exact KVM tier?</text>
+  <text x="309" y="253" fill="#17372e" font-family="Arial,sans-serif" font-size="27" font-weight="700">Plan fit</text>
+  <text x="309" y="298" fill="#49635a" font-family="Arial,sans-serif" font-size="21">CPU, RAM, disk</text><text x="309" y="330" fill="#49635a" font-family="Arial,sans-serif" font-size="21">and bandwidth?</text>
+  <text x="551" y="253" fill="#17372e" font-family="Arial,sans-serif" font-size="27" font-weight="700">Checkout</text>
+  <text x="551" y="298" fill="#49635a" font-family="Arial,sans-serif" font-size="21">Full charge now,</text><text x="551" y="330" fill="#49635a" font-family="Arial,sans-serif" font-size="21">term and renewal?</text>
+  <text x="48" y="459" fill="#216850" font-family="Arial,sans-serif" font-size="22" font-weight="700">The live cart decides what you can actually buy.</text>
+</svg>

@@ -1,0 +1,92 @@
+{
+  "slug": "hostinger-vps-coupon-code",
+  "batch_order": 3,
+  "primary_keyword": "hostinger vps coupon code",
+  "related_keywords": [],
+  "title": "Hostinger VPS coupon code: check the KVM plan",
+  "description": "A dated, VPS-only check of Hostinger's official coupon tab, KVM plan resources, upfront billing and renewal conditions.",
+  "answer": "On October 11, 2026, Hostinger's US English coupon page showed COUPONSPAGE on its VPS hosting tab for KVM 1, 2, 4 and 8. That is a displayed offer, not a tested checkout. Pick the KVM plan that meets your resource needs, then confirm the code, full upfront charge, term and renewal amount in the official cart before paying.",
+  "checked_at": "2026-10-11T09:35:12+08:00",
+  "published_at": "2026-10-11",
+  "facts": [
+    {
+      "label": "Code visible on the VPS coupon cards",
+      "value": "COUPONSPAGE, displayed for KVM 1, KVM 2, KVM 4 and KVM 8 in the US English view",
+      "source_url": "https://www.hostinger.com/coupons"
+    },
+    {
+      "label": "Entry VPS resources",
+      "value": "KVM 1: 1 vCPU, 4 GB RAM, 50 GB NVMe storage, 4 TB bandwidth",
+      "source_url": "https://www.hostinger.com/vps-hosting"
+    },
+    {
+      "label": "Next VPS resources",
+      "value": "KVM 2: 2 vCPU, 8 GB RAM, 100 GB NVMe storage, 8 TB bandwidth",
+      "source_url": "https://www.hostinger.com/vps-hosting"
+    },
+    {
+      "label": "Upfront billing",
+      "value": "The VPS product page says plans are paid upfront; its per-month figure is the plan total divided by the term",
+      "source_url": "https://www.hostinger.com/vps-hosting"
+    }
+  ],
+  "visuals": [
+    {
+      "src": "/media/hostinger-vps-plan-check.svg",
+      "alt": "Compare the official VPS coupon tab with KVM plan resources, then verify upfront and renewal totals in checkout",
+      "caption": "Our VPS-specific check keeps the coupon, server fit and payable total separate."
+    }
+  ],
+  "sections": [
+    {
+      "heading": "What the official VPS tab actually showed",
+      "paragraphs": [
+        "We selected VPS hosting, not the default Web hosting tab, on Hostinger's US English coupons page. Each of its KVM 1, 2, 4 and 8 cards showed COUPONSPAGE as applied. The code is a dated observation on the provider's own page; we did not complete a checkout, so we cannot promise it will be accepted for a later order or another region.",
+        "Hostinger's separate VPS product page showed different plan-card prices when checked in the same session. That difference is a reason to compare the exact route and cart you will use, not a reason to add the displayed discounts together. The two pages show monthly equivalents; the VPS page explicitly says plans are paid upfront."
+      ]
+    },
+    {
+      "heading": "Choose the server before the discount",
+      "paragraphs": [
+        "The provider's VPS product page listed KVM 1 with 1 vCPU, 4 GB RAM, 50 GB NVMe storage and 4 TB bandwidth. KVM 2 listed 2 vCPU, 8 GB RAM, 100 GB NVMe storage and 8 TB bandwidth. KVM 4 and KVM 8 appeared as larger tiers. These are advertised plan resources, not performance measurements from our own server tests.",
+        "Our decision check is to write down the application's memory, storage and transfer needs first, select the smallest advertised tier that meets them, and only then compare that tier's coupon and ordinary product-page routes. A larger percentage off an unsuitable tier does not make it a better purchase. If the application needs a particular operating system or data-center region, verify those options in the chosen plan's cart as well."
+      ]
+    },
+    {
+      "heading": "Work out what you will really owe",
+      "paragraphs": [
+        "The coupon card separately displays an introductory monthly equivalent and a renewal amount; the product page says the plan is paid upfront. Before payment, record four different fields from the actual cart: selected KVM tier, term, amount due now and renewal amount. Do not treat the small per-month label as the amount charged today.",
+        "If the official cart removes the code or changes the term, use the cart's current total rather than this article's October 11 snapshot. We did not enter payment information or verify a completed order. Prices and taxes can depend on the buyer's location, and Hostinger's page states its listed prices exclude VAT."
+      ]
+    },
+    {
+      "heading": "Does the VPS offer include a domain?",
+      "paragraphs": [
+        "The VPS product page included a free-domain feature. Its expanded condition specified a .cloud or .tech domain for the first year with a VPS plan lasting at least 12 months. That is narrower than a blanket promise of a free domain and does not establish a free .com name.",
+        "If a domain matters to the purchase, check its exact extension, registration period and later renewal in the VPS cart. Keep that separate from a standalone domain purchase. The coupon label on a VPS card is not proof that it discounts a separately registered domain."
+      ]
+    },
+    {
+      "heading": "Answers to common VPS coupon questions",
+      "paragraphs": [
+        "Is there a Hostinger VPS coupon code? The US English VPS coupon tab displayed COUPONSPAGE when we checked on October 11, 2026. We can verify the display, not future checkout acceptance.",
+        "Will it work on every KVM plan? We saw the same label beside four KVM tiers on that page, but terms and eligibility can change. Inspect the exact plan and order you intend to buy.",
+        "Can a code from a third-party listing be combined with it? The official coupon FAQ says one coupon per order. We did not verify any third-party code in the provider's cart, so this page does not recommend stacking or present another code as working."
+      ]
+    },
+    {
+      "heading": "Before you confirm payment",
+      "bullets": [
+        "Use the VPS hosting tab on the official coupon page and note the KVM tier next to the displayed code.",
+        "Check the corresponding tier's vCPU, RAM, NVMe storage and bandwidth on the official VPS page.",
+        "At checkout, confirm the chosen term, coupon status, full upfront amount, currency, tax and renewal amount.",
+        "If a free domain is offered, verify its eligible extension and term in the cart; do not assume a .com domain is included."
+      ]
+    }
+  ],
+  "method": "The site editor used the system Chrome browser to read Hostinger's US English coupons page with the VPS hosting tab selected and its separate VPS product page on October 11, 2026. We compared the provider's displayed KVM code, advertised resources, upfront-billing text and expanded domain condition. Google results were used only to identify reader questions, not as proof of offer eligibility. No checkout, purchase, affiliate link or independent performance test was performed.",
+  "sources": [
+    {"label": "Hostinger official coupon page, VPS hosting tab", "url": "https://www.hostinger.com/coupons"},
+    {"label": "Hostinger official VPS hosting product page", "url": "https://www.hostinger.com/vps-hosting"}
+  ]
+}
