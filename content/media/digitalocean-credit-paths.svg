@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" role="img" aria-labelledby="title desc">
+  <title id="title">Check which DigitalOcean-related product receives a credit</title>
+  <desc id="desc">The documented first-team credit, a Cloudways managed-hosting offer and a separately issued promotion follow different conditions.</desc>
+  <rect width="960" height="400" rx="24" fill="#10233d"/>
+  <text x="48" y="62" fill="#f3f8ff" font-family="Arial,sans-serif" font-size="28" font-weight="700">Follow the credit to the product</text>
+  <g font-family="Arial,sans-serif">
+    <rect x="42" y="94" width="278" height="220" rx="18" fill="#e5f4ff"/>
+    <text x="62" y="129" fill="#092c4d" font-size="18" font-weight="700">DigitalOcean team</text>
+    <text x="62" y="170" fill="#064a84" font-size="25" font-weight="700">$5 signup credit</text>
+    <text x="62" y="205" fill="#153b5c" font-size="15">Automatic for first team</text>
+    <text x="62" y="229" fill="#153b5c" font-size="15">No code required</text>
+    <text x="62" y="253" fill="#153b5c" font-size="15">Check Control Panel balance</text>
+    <rect x="341" y="94" width="278" height="220" rx="18" fill="#f2eefa"/>
+    <text x="361" y="129" fill="#382455" font-size="18" font-weight="700">Cloudways hosting</text>
+    <text x="361" y="170" fill="#643795" font-size="25" font-weight="700">$100 page wording</text>
+    <text x="361" y="205" fill="#4a365c" font-size="15">Button goes to Cloudways</text>
+    <text x="361" y="229" fill="#4a365c" font-size="15">Read its own offer terms</text>
+    <text x="361" y="253" fill="#4a365c" font-size="15">Not proof of Droplet credit</text>
+    <rect x="640" y="94" width="278" height="220" rx="18" fill="#fff0df"/>
+    <text x="660" y="129" fill="#663810" font-size="18" font-weight="700">Separate promotion</text>
+    <text x="660" y="170" fill="#9a5014" font-size="25" font-weight="700">Offer-specific</text>
+    <text x="660" y="205" fill="#62492e" font-size="15">Verify issuer and eligibility</text>
+    <text x="660" y="229" fill="#62492e" font-size="15">Check expiry and exclusions</text>
+    <text x="660" y="253" fill="#62492e" font-size="15">Confirm account acceptance</text>
+    <text x="48" y="360" fill="#c8daef" font-size="16">Source: DigitalOcean public documentation and product page, checked 2026-10-13.</text>
+  </g>
+</svg>
