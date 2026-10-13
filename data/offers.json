@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-10-13T06:37:36+00:00",
+  "generated_at": "2026-10-13T07:44:27+00:00",
   "offers": [
     {
       "id": "digitalocean-signup-credit",
       "provider_id": "digitalocean",
-      "title": "DigitalOcean: $100 free credit",
+      "title": "DigitalOcean: $5 free credit",
       "offer_type": "signup_credit",
       "duration": null,
-      "eligibility": "Check the official page for eligibility",
-      "offer_url": "https://www.digitalocean.com/solutions/small-business-website-hosting",
-      "source_url": "https://www.digitalocean.com/solutions/small-business-website-hosting",
-      "fetched_at": "2026-10-13T06:37:36+00:00",
-      "source_excerpt": "with $100 in free credit",
-      "credit": "$100",
-      "content_updated_at": "2026-09-23T16:28:49+00:00"
+      "eligibility": "First team; no promo code; expires 90 days after signup; valid payment method required before creating resources",
+      "offer_url": "https://docs.digitalocean.com/platform/billing/signup-credit/",
+      "source_url": "https://docs.digitalocean.com/platform/billing/signup-credit/",
+      "fetched_at": "2026-10-13T07:44:27+00:00",
+      "source_excerpt": "When you create your first team, DigitalOcean automatically applies a $5 signup credit",
+      "credit": "$5",
+      "content_updated_at": "2026-10-13T07:44:27+00:00"
     },
     {
       "id": "vultr-signup-credit",
