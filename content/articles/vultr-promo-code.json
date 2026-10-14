@@ -1,0 +1,76 @@
+{
+  "slug": "vultr-promo-code",
+  "batch_order": 6,
+  "primary_keyword": "vultr promo code",
+  "related_keywords": ["vultr promotion code", "vultr coupon", "vultr coupon code", "vultr gift code"],
+  "title": "Vultr promo code: check the offer before applying it",
+  "description": "A dated check of Vultr's own coupon listings, the difference between deposit matching and credit, and the documented billing redemption steps.",
+  "answer": "On October 14, 2026, Vultr's official coupons page listed VULTRMATCH, FLYTWOHUNDRED, FLY300VULTR and 250VULTRFLY. VULTRMATCH describes a first-deposit match, while the other three are advertised as free credit. The page limits the promotions to new customers, select products and no combination with other offers. A displayed code is not proof that your account or chosen server qualifies: read its current details, enter it in Billing > Summary, and confirm the resulting credit and expiry before deploying.",
+  "checked_at": "2026-10-14T09:31:23+08:00",
+  "published_at": "2026-10-14",
+  "facts": [
+    {
+      "label": "First-deposit match listing",
+      "value": "VULTRMATCH: first deposit matched dollar for dollar, up to $100; new customers only",
+      "source_url": "https://www.vultr.com/coupons/"
+    },
+    {
+      "label": "Listed free-credit codes",
+      "value": "FLYTWOHUNDRED ($200), FLY300VULTR ($300) and 250VULTRFLY ($250); displayed on Vultr's coupon page, not redeemed by this site",
+      "source_url": "https://www.vultr.com/coupons/"
+    },
+    {
+      "label": "Published restrictions",
+      "value": "New customers only; select products; cannot be combined with other offers; further terms apply",
+      "source_url": "https://www.vultr.com/coupons/"
+    },
+    {
+      "label": "Documented redemption step",
+      "value": "Add the promotional coupon in Billing's Summary section and click Apply",
+      "source_url": "https://docs.vultr.com/platform/create-an-account"
+    }
+  ],
+  "visuals": [
+    {
+      "src": "/media/vultr-code-paths.svg",
+      "alt": "Two Vultr coupon paths, a first-deposit match and listed free-credit codes, both leading to product and billing checks",
+      "caption": "Read the offer type first, then check eligibility and the actual billing balance."
+    }
+  ],
+  "sections": [
+    {
+      "heading": "A deposit match is not the same as free credit",
+      "paragraphs": [
+        "Vultr's coupon page currently puts four codes side by side, but their headlines describe different transactions. VULTRMATCH says Vultr will match the first deposit dollar for dollar up to $100. That wording depends on a deposit; it is not a promise of a $100 balance without one. The three FLY codes are separately described on the page as free-credit offers. Do not add their headline amounts together: the page says promotions cannot be combined.",
+        "The page's asterisk says promotional credit applies only to select products and is for new customers. It does not establish that a particular existing account, server configuration or billing method will receive any one of these amounts. The offer's View details links matter for those questions. When we tried to open the FLY300VULTR detail page, a security-verification screen prevented us from reading its terms; we did not bypass it or infer a code-specific expiry."
+      ]
+    },
+    {
+      "heading": "Use a four-field coupon record",
+      "paragraphs": [
+        "For each code you consider, write down four fields before treating it as savings: the exact Vultr source URL, the offer type (deposit match or advertised credit), your account and product eligibility, and the balance plus expiry shown after applying it. If a field cannot be checked, label it unknown. This small record prevents a headline amount from being silently treated as cash or a permanent server discount.",
+        "Compare codes using the amount you would actually deposit or spend, not the largest number in a search snippet. A match against your first deposit and a time-limited trial credit can have different useful values even when their headlines look similar. We did not open an account, make a deposit or calculate an individual reader's value."
+      ]
+    },
+    {
+      "heading": "Follow Vultr's documented application path",
+      "paragraphs": [
+        "Vultr's account guide says to create an account, verify the email address and add a payment method on the Billing page. Its Summary section has a Promotional coupon field; enter the code there and click Apply. The guide describes a credit-card option with a $0.00 initial deposit for verification, but says other payment options require a small deposit. A deposit-free card verification is not the same as being free from future resource charges.",
+        "After applying a code, inspect the actual billing credit, its permitted products and its expiry before creating a server. Vultr's guide explicitly advises monitoring the credit balance and deprovisioning resources before credits expire or end to avoid extra charges. If the balance does not appear or the selected product is excluded, do not report the headline code as accepted for that account."
+      ]
+    },
+    {
+      "heading": "Questions readers ask",
+      "paragraphs": [
+        "Does Vultr give free credits? Its account guide says it offers free credits for up to 30 days, and the coupon page currently lists several free-credit codes. The guide's general window does not prove that every listed code has the same expiry; check the particular offer and your billing record.",
+        "Can I use two Vultr codes together? The coupon page says these promotions cannot be combined with other offers. We therefore do not recommend stacking their advertised amounts.",
+        "Is the largest listed credit automatically the best deal? Not enough information is public in the page headline alone. Check whether your desired product is included, whether the code is accepted by your account, when its credit expires and whether a deposit is needed."
+      ]
+    }
+  ],
+  "method": "Checked October 14, 2026 in the user's system Chrome: Google US results supplied question clues only; Vultr's own coupons page supplied the displayed codes, offer wording and general restrictions; Vultr Docs supplied the billing workflow. The FLY300VULTR detail URL showed a security-verification page, so its detailed terms were not read. A Reddit discussion was blocked by network security and was not used as evidence. No account was opened, code entered, deposit made or checkout tested. This article has no affiliate link.",
+  "sources": [
+    {"label": "Vultr official coupons page", "url": "https://www.vultr.com/coupons/"},
+    {"label": "Vultr account creation and coupon guide", "url": "https://docs.vultr.com/platform/create-an-account"}
+  ]
+}

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 360" role="img" aria-labelledby="title desc">
+  <title id="title">Follow the Vultr coupon to its billing result</title>
+  <desc id="desc">A first-deposit match and a free-credit listing are different offer paths. Both need eligibility, product, balance and expiry checks.</desc>
+  <rect width="960" height="360" rx="24" fill="#10233d"/>
+  <g font-family="Arial,sans-serif">
+    <text x="42" y="58" fill="#f3f8ff" font-size="28" font-weight="700">Read the offer type before the amount</text>
+    <rect x="40" y="88" width="420" height="174" rx="18" fill="#e7f4ff"/>
+    <text x="63" y="124" fill="#103955" font-size="20" font-weight="700">First-deposit match</text>
+    <text x="63" y="160" fill="#075887" font-size="23" font-weight="700">VULTRMATCH</text>
+    <text x="63" y="196" fill="#203f54" font-size="16">Match depends on the first deposit.</text>
+    <text x="63" y="224" fill="#203f54" font-size="16">Check the matched balance and terms.</text>
+    <rect x="500" y="88" width="420" height="174" rx="18" fill="#fff2df"/>
+    <text x="523" y="124" fill="#704111" font-size="20" font-weight="700">Listed free-credit codes</text>
+    <text x="523" y="160" fill="#98500e" font-size="23" font-weight="700">FLY codes</text>
+    <text x="523" y="196" fill="#5b4630" font-size="16">A listing is not account acceptance.</text>
+    <text x="523" y="224" fill="#5b4630" font-size="16">Check product, balance and expiry.</text>
+    <text x="42" y="313" fill="#d7e5f5" font-size="17">Both paths: official page → Billing Summary → Apply → inspect the result.</text>
+    <text x="42" y="337" fill="#aec9e7" font-size="13">Sources: Vultr coupons and account guide, checked 2026-10-14.</text>
+  </g>
+</svg>
